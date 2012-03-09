@@ -7,17 +7,29 @@ vendor($prop, $args)
 	-moz-{$prop} $args
 	{$prop} $args
 
-/*bordered($color = #eee #eee #eee #eee, $width = 1px 1px 1px 1px, $type = solid solid solid solid)
-	$positions = 'top', 'right', 'bottom', 'left'
+bordered($color = #eee #eee #eee #eee, $width = 1px 1px 1px 1px, $type = solid solid solid solid)
+	$positions = 'top' 'left' 'right' 'bottom'
 
-	for $pos_count in 1, 2, 3, 4
-		border-{$positions[$pos_count]} $type[$pos_count] $width[$pos_count] $color[$pos_count]*/
+	for n, i in $positions
+		border-{$positions[i]}: $type[i] $width[i] $color[i]
 
 rounded($radius = 2px)
 	vendor('border-radius', $radius);
 	-moz-background-clip: padding
 	-webkit-background-clip: padding-box
 	background-clip: padding-box
+
+transition-duration($duration = 0.2s)
+	vendor('transition-duration', $duration);
+
+rotation($deg = 5deg)
+	vendor('transform', rotate($deg));
+
+scale($ratio = 1.5)
+	vendor('transform', rotate($ratio));
+
+transition($duration = 0.2s, $ease = ease-out)
+	vendor('transition', all $duration $ease);
 
 drop-shadow($args = 0 1px 2px .2)
 	vendor('box-shadow', $args[0] $args[1] $args[2] rgba(0, 0, 0, $args[3]));
@@ -37,5 +49,14 @@ columns($colwidth = 250px, $colcount = 0, $colgap = 50px, $olumnRuleColor = #EEE
 	vendor('column-rule-style', $columnRuleStyle);
 	vendor('column-rule-width', $columnRuleWidth);
 
-button
-	columns()
+
+/* Pequenos testes */
+
+div
+	height: 50px;
+	width: 50px;
+	background:blue;
+	transition(.5s)
+
+	&:hover
+		background:mix(gold, red);
