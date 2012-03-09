@@ -7,6 +7,11 @@ vendor($prop, $args)
 	-moz-{$prop} $args
 	{$prop} $args
 
+bordered($color = #eee #eee #eee #eee, $width = 1px 1px 1px 1px, $type = solid solid solid solid)
+    $positions = 'top', 'right', 'bottom', 'left'
+    for $pos_count in 1, 2, 3, 4
+        border-{$positions[$pos_count]} $type[$pos_count] $width[$pos_count] $color[$pos_count]
+
 rounded($radius = 2px)
 	vendor('border-radius', $radius);
 	-moz-background-clip: padding
@@ -19,6 +24,17 @@ drop-shadow($args = 0 1px 2px .2)
 opacity($opacity = 1)
 	-khtml-opacity: $opacity;
 	vendor('opacity', $opacity);
+
+inner-shadow($args = 0 1px 2px .2)
+    vendor('box-shadow', inset $args[0] $args[1] $args[2] rgba(0, 0, 0, $args[3]));
+
+columns($colwidth = 250px, $colcount = 0, $colgap = 50px, $olumnRuleColor = #EEE, $olumnRuleStyle = solid, $columnRuleWidth = 1px)
+    vendor('column-width', $colwidth)
+    vendor('column-count', $colcount)
+    vendor('column-gap', $colgap)
+    vendor('column-rule-colo', $columnRuleColor)
+    vendor('column-rule-style', $columnRuleStyle)
+    vendor('column-rule-width', $columnRuleWidth)
 
 button
 	opacity()
