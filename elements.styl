@@ -1,0 +1,26 @@
+/*---------------------------------------------------
+    Stylus Elements 0.1
+-----------------------------------------------------*/
+
+vendor($prop, $args)
+	-webkit-{$prop} $args
+	-moz-{$prop} $args
+	{$prop} $args
+
+rounded($radius = 2px)
+	vendor('border-radius', $radius);
+	-moz-background-clip: padding
+	-webkit-background-clip: padding-box
+	background-clip: padding-box
+
+drop-shadow($args = 0 1px 2px .2)
+	vendor('box-shadow', $args[0] $args[1] $args[2] rgba(0, 0, 0, $args[3]));
+
+opacity($opacity = 1)
+	-khtml-opacity: $opacity;
+	vendor('opacity', $opacity);
+
+button
+	opacity()
+	drop-shadow()
+	rounded()
