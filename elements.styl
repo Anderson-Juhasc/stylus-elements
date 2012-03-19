@@ -49,6 +49,13 @@ columns($colwidth = 250px, $colcount = 0, $colgap = 50px, $olumnRuleColor = #EEE
 	vendor('column-rule-style', $columnRuleStyle);
 	vendor('column-rule-width', $columnRuleWidth);
 
+gradient($color = #F5F5F5, $start = #EEE, $stop = #FFF) {
+  background: $color;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, $start), color-stop(1, $stop));
+  background: -ms-linear-gradient(bottom, $start, $stop);
+  background: -moz-linear-gradient(center bottom, $start 0%, $stop 100%);
+}
+
 
 /* Pequenos testes */
 
